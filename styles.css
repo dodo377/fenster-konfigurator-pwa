@@ -1,0 +1,336 @@
+:root {
+    color-scheme: light;
+    --bg: #0b1220;
+    --panel: #0f172a;
+    --card: #111c33;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --primary: #38bdf8;
+    --primary-dark: #0ea5e9;
+    --danger: #f87171;
+    --border: #1e293b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #1e293b, #0b1220 70%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 8px 12px 12px;
+    overflow: hidden;
+}
+
+.app {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6% 12% 70% 12%;
+    gap: 6px;
+    height: calc(100vh - 24px);
+    overflow: hidden;
+}
+
+.app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 8px;
+    background: var(--panel);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.status-inline {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: 0px;
+    font-size: 9px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    padding: 10px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card--info {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(15, 23, 42, 0.7));
+}
+
+.form {
+    display: grid;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.card h2 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.field input,
+.field textarea {
+    padding: 8px 10px;
+    background: #0b132a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: 2px solid rgba(56, 189, 248, 0.5);
+    border-color: var(--primary);
+}
+
+.form__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 11px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: #0b1220;
+}
+
+.btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(56, 189, 248, 0.3);
+}
+
+.btn--ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn--ghost:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.status {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.list__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list__item {
+    background: #0b132a;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 6px;
+}
+
+.list__title {
+    font-weight: 600;
+}
+
+.list__note {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.list__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.badge {
+    background: rgba(56, 189, 248, 0.2);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.item__actions button {
+    background: transparent;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.selector__option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: #0b132a;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 13px;
+}
+
+.selector__option:has(input:checked) {
+    border-color: var(--primary);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.selector__option input {
+    margin: 0;
+}
+
+.selector__option span {
+    font-weight: 600;
+}
+
+.window-display {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 6px;
+    margin-top: 6px;
+    height: 100%;
+}
+
+.window-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    align-items: center;
+    justify-items: center;
+}
+
+.window-image {
+    aspect-ratio: 4/5;
+    background: #0b132a;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.window-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.material {
+    padding: 8px 10px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 12px;
+    min-width: 80px;
+}
+
+.material--top,
+.material--bottom {
+    justify-self: center;
+    min-width: 150px;
+}
+
+.material--left,
+.material--right {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    min-height: 150px;
+}
+
+.dimension-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+@media (max-width: 640px) {
+    .dimension-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .window-row {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .material--left,
+    .material--right {
+        writing-mode: horizontal-tb;
+    }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+    <defs>
+        <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#94a3b8" />
+            <stop offset="1" stop-color="#64748b" />
+        </linearGradient>
+    </defs>
+    <!-- Rahmen links -->
+    <rect x="50" y="50" width="145" height="400" fill="url(#frame)" rx="8"/>
+    <!-- Glas links -->
+    <rect x="65" y="70" width="115" height="360" fill="#bfdbfe" opacity="0.6" rx="4"/>
+    
+    <!-- Rahmen rechts -->
+    <rect x="205" y="50" width="145" height="400" fill="url(#frame)" rx="8"/>
+    <!-- Glas rechts -->
+    <rect x="220" y="70" width="115" height="360" fill="#bfdbfe" opacity="0.6" rx="4"/>
+    
+    <!-- Stulp-Verbindung (Mitte) -->
+    <rect x="195" y="100" width="10" height="300" fill="#0f172a" opacity="0.6"/>
+    
+    <!-- Griff links -->
+    <circle cx="165" cy="250" r="10" fill="#0f172a"/>
+    <!-- Griff rechts -->
+    <circle cx="235" cy="250" r="10" fill="#0f172a"/>
+</svg>

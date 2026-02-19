@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
+    <defs>
+        <linearGradient id="frame" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#94a3b8" />
+            <stop offset="1" stop-color="#64748b" />
+        </linearGradient>
+    </defs>
+    <!-- Rahmen -->
+    <rect x="50" y="50" width="300" height="400" fill="url(#frame)" rx="8"/>
+    <!-- Glas -->
+    <rect x="70" y="70" width="260" height="360" fill="#bfdbfe" opacity="0.6" rx="4"/>
+    <!-- Griff (rechts, mittig) -->
+    <circle cx="310" cy="250" r="12" fill="#0f172a"/>
+    <rect x="305" y="240" width="10" height="20" fill="#0f172a" rx="2"/>
+    <!-- Drehachse (links) -->
+    <line x1="70" y1="100" x2="70" y2="400" stroke="#0f172a" stroke-width="3" opacity="0.4"/>
+    <!-- Kippachse (oben) -->
+    <line x1="100" y1="70" x2="300" y2="70" stroke="#0f172a" stroke-width="3" opacity="0.4"/>
+    <!-- DK Symbol -->
+    <text x="200" y="30" text-anchor="middle" font-size="16" fill="#0f172a" font-weight="bold">DK</text>
+</svg>
