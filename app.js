@@ -21,9 +21,9 @@ let deferredPrompt;
 let currentWindowType = "dreh";
 
 const windowImages = {
-    dreh: "dreh.svg",
-    kipp: "kipp.svg",
-    drehkipp: "drehkipp.svg",
+    dreh: "dreh.png",
+    kipp: "kipp.png",
+    drehkipp: "dreh_kipp.png",
     stulp: "stulp.svg"
 };
 

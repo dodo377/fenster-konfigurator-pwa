@@ -1,4 +1,4 @@
-const CACHE_NAME = "fenster-konfigurator-v1";
+const CACHE_NAME = "fenster-konfigurator-v7";
 const STATIC_ASSETS = [
     "./index.html",
     "./styles.css",
@@ -7,9 +7,9 @@ const STATIC_ASSETS = [
     "./icon-192.png",
     "./icon-512.png",
     "./apple-touch-icon.png",
-    "./dreh.svg",
-    "./kipp.svg",
-    "./drehkipp.svg",
+    "./dreh.png",
+    "./kipp.png",
+    "./dreh_kipp.png",
     "./stulp.svg",
 ];
 
