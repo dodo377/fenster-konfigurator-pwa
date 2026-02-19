@@ -81,108 +81,42 @@ const getAllMaterials = async () =>
 
 const findMaterial = async (windowType, width, height) => {
     const materials = await getAllMaterials();
-    let left, right, top, bottom;
     
-    if (windowType === "dreh" || windowType === "drehkipp") {
-        // DREH/DREHKIPP: Links+Oben basieren auf FFH (Höhe), Rechts+Unten auf FFB (Breite)
-        left = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "left" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        right = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "right" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-        
-        top = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "top" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        bottom = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "bottom" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-    } else if (windowType === "kipp") {
-        // KIPP: Links+Rechts basieren auf FFH (Höhe), Oben+Unten auf FFB (Breite)
-        left = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "left" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        right = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "right" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        top = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "top" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-        
-        bottom = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "bottom" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-    } else if (windowType === "stulp") {
-        // STULP: Links+Rechts basieren auf FFH (Höhe), Oben+Unten auf FFB (Breite)
-        left = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "left" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        right = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "right" &&
-                height >= m.minHeight &&
-                height <= m.maxHeight
-        );
-        
-        top = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "top" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-        
-        bottom = materials.find(
-            (m) =>
-                m.windowType === windowType &&
-                m.position === "bottom" &&
-                width >= m.minWidth &&
-                width <= m.maxWidth
-        );
-    }
+    // Für ALLE Fenstertypen:
+    // Links + Rechts: basierend auf FFH (Höhe)
+    // Oben + Unten: basierend auf FFB (Breite)
+    
+    const left = materials.find(
+        (m) =>
+            m.windowType === windowType &&
+            m.position === "left" &&
+            height >= m.minHeight &&
+            height <= m.maxHeight
+    );
+    
+    const right = materials.find(
+        (m) =>
+            m.windowType === windowType &&
+            m.position === "right" &&
+            height >= m.minHeight &&
+            height <= m.maxHeight
+    );
+    
+    const top = materials.find(
+        (m) =>
+            m.windowType === windowType &&
+            m.position === "top" &&
+            width >= m.minWidth &&
+            width <= m.maxWidth
+    );
+    
+    const bottom = materials.find(
+        (m) =>
+            m.windowType === windowType &&
+            m.position === "bottom" &&
+            width >= m.minWidth &&
+            width <= m.maxWidth
+    );
     
     if (!left || !right || !top || !bottom) return null;
     
