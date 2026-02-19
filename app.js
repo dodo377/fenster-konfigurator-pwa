@@ -375,11 +375,31 @@ const registerServiceWorker = async () => {
     if (!("serviceWorker" in navigator)) return;
 
     try {
-        await navigator.serviceWorker.register("sw.js");
+        const registration = await navigator.serviceWorker.register("sw.js");
+        console.log("Service Worker registriert");
+        
+        // Automatisches Update prüfen
+        registration.addEventListener("updatefound", () => {
+            const newWorker = registration.installing;
+            newWorker.addEventListener("statechange", () => {
+                if (newWorker.state === "activated" && navigator.serviceWorker.controller) {
+                    console.log("Neue Version verfügbar - Seite wird neu geladen...");
+                    window.location.reload();
+                }
+            });
+        });
     } catch (error) {
         console.error(error);
     }
 };
+
+// Auf Service Worker Controller-Wechsel reagieren
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+        console.log("Service Worker aktualisiert");
+        window.location.reload();
+    });
+}
 
 updateOfflineState();
 registerServiceWorker();
