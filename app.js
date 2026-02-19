@@ -1,6 +1,6 @@
 const DB_NAME = "window-door-db";
 const STORE_NAME = "materials";
-const DB_VERSION = 4;
+const DB_VERSION = 5;
 
 const dimensionForm = document.getElementById("dimensionForm");
 const widthInput = document.getElementById("widthInput");
@@ -224,13 +224,50 @@ const initSampleData = async () => {
         { windowType: "kipp", position: "bottom", minWidth: 1791, maxWidth: 2300, minHeight: 0, maxHeight: 99999, material: "KB + SL (4x)" }
     ];
 
-    // Beispieldaten für andere Fenstertypen
+    // DREHKIPP - LINKS (basierend auf FFH = Höhe)
+    const drehkippLeft = [
+        { windowType: "drehkipp", position: "left", minHeight: 231, maxHeight: 325, minWidth: 0, maxWidth: 99999, material: "GAK.465" },
+        { windowType: "drehkipp", position: "left", minHeight: 326, maxHeight: 510, minWidth: 0, maxWidth: 99999, material: "GAM.800" },
+        { windowType: "drehkipp", position: "left", minHeight: 511, maxHeight: 710, minWidth: 0, maxWidth: 99999, material: "GAM.800" },
+        { windowType: "drehkipp", position: "left", minHeight: 711, maxHeight: 980, minWidth: 0, maxWidth: 99999, material: "GAM.1050-1" },
+        { windowType: "drehkipp", position: "left", minHeight: 981, maxHeight: 1400, minWidth: 0, maxWidth: 99999, material: "GAM.1400-1" },
+        { windowType: "drehkipp", position: "left", minHeight: 1401, maxHeight: 1800, minWidth: 0, maxWidth: 99999, material: "GAM.1800-2" },
+        { windowType: "drehkipp", position: "left", minHeight: 1801, maxHeight: 2300, minWidth: 0, maxWidth: 99999, material: "GAM.2300-3" },
+        { windowType: "drehkipp", position: "left", minHeight: 2301, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "GAM.2300-3 + MK.250-1 + MK.250-1" }
+    ];
+
+    // DREHKIPP - RECHTS (basierend auf FFB = Breite)
+    const drehkippRight = [
+        { windowType: "drehkipp", position: "right", minWidth: 0, maxWidth: 860, minHeight: 0, maxHeight: 99999, material: "AWDR" },
+        { windowType: "drehkipp", position: "right", minWidth: 861, maxWidth: 1285, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 1286, maxWidth: 1535, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 1536, maxWidth: 1785, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 1786, maxWidth: 2035, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 2036, maxWidth: 2285, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.750-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 2286, maxWidth: 2535, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.500-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minWidth: 2536, maxWidth: 2725, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.750-1 + M.500-1" }
+    ];
+
+    // DREHKIPP - OBEN (basierend auf FFH = Höhe)
+    const drehkippTop = [
+        { windowType: "drehkipp", position: "top", minHeight: 271, maxHeight: 600, minWidth: 0, maxWidth: 99999, material: "OS1.600" },
+        { windowType: "drehkipp", position: "top", minHeight: 601, maxHeight: 800, minWidth: 0, maxWidth: 99999, material: "OS2.800" },
+        { windowType: "drehkipp", position: "top", minHeight: 801, maxHeight: 1025, minWidth: 0, maxWidth: 99999, material: "OS2.1025-1" },
+        { windowType: "drehkipp", position: "top", minHeight: 1026, maxHeight: 1250, minWidth: 0, maxWidth: 99999, material: "OS2.1250-1" },
+        { windowType: "drehkipp", position: "top", minHeight: 1251, maxHeight: 1475, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1" },
+        { windowType: "drehkipp", position: "top", minHeight: 1476, maxHeight: 1725, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1 + ZSR" }
+    ];
+
+    // DREHKIPP - UNTEN (basierend auf FFB = Breite)
+    const drehkippBottom = [
+        { windowType: "drehkipp", position: "bottom", minWidth: 0, maxWidth: 840, minHeight: 0, maxHeight: 99999, material: "AWDR" },
+        { windowType: "drehkipp", position: "bottom", minWidth: 841, maxWidth: 1250, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
+        { windowType: "drehkipp", position: "bottom", minWidth: 1251, maxWidth: 1500, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
+        { windowType: "drehkipp", position: "bottom", minWidth: 1501, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" }
+    ];
+
+    // Beispieldaten für Stulp
     const otherTypes = [
-        { windowType: "drehkipp", position: "left", minHeight: 1400, maxHeight: 2000, minWidth: 0, maxWidth: 99999, material: "Seitenprofil DK" },
-        { windowType: "drehkipp", position: "right", minWidth: 900, maxWidth: 1600, minHeight: 0, maxHeight: 99999, material: "Profil DK" },
-        { windowType: "drehkipp", position: "top", minHeight: 1400, maxHeight: 2000, minWidth: 0, maxWidth: 99999, material: "Profil DK Oben" },
-        { windowType: "drehkipp", position: "bottom", minWidth: 900, maxWidth: 1600, minHeight: 0, maxHeight: 99999, material: "Profil DK Unten" },
-        
         { windowType: "stulp", position: "left", minHeight: 1500, maxHeight: 2200, minWidth: 0, maxWidth: 99999, material: "Seitenprofil Stulp" },
         { windowType: "stulp", position: "right", minWidth: 1200, maxWidth: 2000, minHeight: 0, maxHeight: 99999, material: "Profil Stulp" },
         { windowType: "stulp", position: "top", minHeight: 1500, maxHeight: 2200, minWidth: 0, maxWidth: 99999, material: "Profil Stulp Oben" },
@@ -246,6 +283,10 @@ const initSampleData = async () => {
         ...kippRight,
         ...kippTop,
         ...kippBottom,
+        ...drehkippLeft,
+        ...drehkippRight,
+        ...drehkippTop,
+        ...drehkippBottom,
         ...otherTypes
     ];
 
