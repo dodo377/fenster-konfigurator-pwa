@@ -329,17 +329,6 @@ const initApp = async () => {
     updateWindowImage();
 };
 
-windowTypeRadios.forEach((radio) => {
-    radio.addEventListener("change", (event) => {
-        currentWindowType = event.target.value;
-        updateWindowImage();
-        materialTop.textContent = "—";
-        materialBottom.textContent = "—";
-        materialLeft.textContent = "—";
-        materialRight.textContent = "—";
-    });
-});
-
 const updateMaterials = async () => {
     const width = Number(widthInput.value);
     const height = Number(heightInput.value);
@@ -352,6 +341,14 @@ const updateMaterials = async () => {
     const material = await findMaterial(currentWindowType, width, height);
     updateMaterialDisplay(material);
 };
+
+windowTypeRadios.forEach((radio) => {
+    radio.addEventListener("change", async (event) => {
+        currentWindowType = event.target.value;
+        updateWindowImage();
+        await updateMaterials();
+    });
+});
 
 widthInput.addEventListener("input", updateMaterials);
 heightInput.addEventListener("input", updateMaterials);

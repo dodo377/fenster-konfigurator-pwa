@@ -1,4 +1,4 @@
-const CACHE_NAME = "fenster-konfigurator-v10";
+const CACHE_NAME = "fenster-konfigurator-v11";
 const STATIC_ASSETS = [
     "./index.html",
     "./styles.css",
