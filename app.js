@@ -340,18 +340,25 @@ windowTypeRadios.forEach((radio) => {
     });
 });
 
-dimensionForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
+const updateMaterials = async () => {
     const width = Number(widthInput.value);
     const height = Number(heightInput.value);
 
     if (!width || !height) {
+        updateMaterialDisplay(null);
         return;
     }
 
     const material = await findMaterial(currentWindowType, width, height);
     updateMaterialDisplay(material);
+};
+
+widthInput.addEventListener("input", updateMaterials);
+heightInput.addEventListener("input", updateMaterials);
+
+dimensionForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await updateMaterials();
 });
 
 window.addEventListener("online", updateOfflineState);
