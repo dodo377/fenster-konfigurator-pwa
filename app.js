@@ -1,6 +1,6 @@
 const DB_NAME = "window-door-db";
 const STORE_NAME = "materials";
-const DB_VERSION = 5;
+const DB_VERSION = 6;
 
 const dimensionForm = document.getElementById("dimensionForm");
 const widthInput = document.getElementById("widthInput");
@@ -266,12 +266,37 @@ const initSampleData = async () => {
         { windowType: "drehkipp", position: "bottom", minWidth: 1501, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" }
     ];
 
-    // Beispieldaten für Stulp
-    const otherTypes = [
-        { windowType: "stulp", position: "left", minHeight: 1500, maxHeight: 2200, minWidth: 0, maxWidth: 99999, material: "Seitenprofil Stulp" },
-        { windowType: "stulp", position: "right", minWidth: 1200, maxWidth: 2000, minHeight: 0, maxHeight: 99999, material: "Profil Stulp" },
-        { windowType: "stulp", position: "top", minHeight: 1500, maxHeight: 2200, minWidth: 0, maxWidth: 99999, material: "Profil Stulp Oben" },
-        { windowType: "stulp", position: "bottom", minWidth: 1200, maxWidth: 2000, minHeight: 0, maxHeight: 99999, material: "Profil Stulp Unten" }
+    // STULP - LINKS (basierend auf FFH = Höhe)
+    const stulpLeft = [
+        { windowType: "stulp", position: "left", minHeight: 411, maxHeight: 710, minWidth: 0, maxWidth: 99999, material: "GASM.800" },
+        { windowType: "stulp", position: "left", minHeight: 711, maxHeight: 980, minWidth: 0, maxWidth: 99999, material: "GASM.1050-1.E3" },
+        { windowType: "stulp", position: "left", minHeight: 981, maxHeight: 1400, minWidth: 0, maxWidth: 99999, material: "GASM.GZ.1400-1" },
+        { windowType: "stulp", position: "left", minHeight: 1401, maxHeight: 1800, minWidth: 0, maxWidth: 99999, material: "GASM.GZ.1800-2" },
+        { windowType: "stulp", position: "left", minHeight: 1801, maxHeight: 2300, minWidth: 0, maxWidth: 99999, material: "GASM.GZ.2300-3" },
+        { windowType: "stulp", position: "left", minHeight: 2301, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "GASM.GZ.2300-3 + MS.SU.250-1 + MS.SO.250-1" }
+    ];
+
+    // STULP - RECHTS (basierend auf FFH = Höhe)
+    const stulpRight = [
+        { windowType: "stulp", position: "right", minHeight: 801, maxHeight: 1600, minWidth: 0, maxWidth: 99999, material: "ZV-FT (1x)" },
+        { windowType: "stulp", position: "right", minHeight: 1601, maxHeight: 2400, minWidth: 0, maxWidth: 99999, material: "ZV-FT (2x)" },
+        { windowType: "stulp", position: "right", minHeight: 2401, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "ZV-FT (3x)" }
+    ];
+
+    // STULP - OBEN (basierend auf FFB = Breite)
+    const stulpTop = [
+        { windowType: "stulp", position: "top", minWidth: 0, maxWidth: 840, minHeight: 0, maxHeight: 99999, material: "AWDR" },
+        { windowType: "stulp", position: "top", minWidth: 841, maxWidth: 1250, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
+        { windowType: "stulp", position: "top", minWidth: 1251, maxWidth: 1500, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
+        { windowType: "stulp", position: "top", minWidth: 1501, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" }
+    ];
+
+    // STULP - UNTEN (basierend auf FFB = Breite - gleich wie oben)
+    const stulpBottom = [
+        { windowType: "stulp", position: "bottom", minWidth: 0, maxWidth: 840, minHeight: 0, maxHeight: 99999, material: "AWDR" },
+        { windowType: "stulp", position: "bottom", minWidth: 841, maxWidth: 1250, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
+        { windowType: "stulp", position: "bottom", minWidth: 1251, maxWidth: 1500, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
+        { windowType: "stulp", position: "bottom", minWidth: 1501, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" }
     ];
 
     const allMaterials = [
@@ -287,7 +312,10 @@ const initSampleData = async () => {
         ...drehkippRight,
         ...drehkippTop,
         ...drehkippBottom,
-        ...otherTypes
+        ...stulpLeft,
+        ...stulpRight,
+        ...stulpTop,
+        ...stulpBottom
     ];
 
     for (const material of allMaterials) {
