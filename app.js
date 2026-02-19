@@ -1,6 +1,6 @@
 const DB_NAME = "window-door-db";
 const STORE_NAME = "materials";
-const DB_VERSION = 3;
+const DB_VERSION = 4;
 
 const dimensionForm = document.getElementById("dimensionForm");
 const widthInput = document.getElementById("widthInput");
@@ -194,13 +194,38 @@ const initSampleData = async () => {
         { windowType: "dreh", position: "bottom", minWidth: 1501, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" }
     ];
 
+    // KIPP - LINKS (basierend auf FFH = Höhe)
+    const kippLeft = [
+        { windowType: "kipp", position: "left", minHeight: 0, maxHeight: 860, minWidth: 0, maxWidth: 99999, material: "AWDR" },
+        { windowType: "kipp", position: "left", minHeight: 861, maxHeight: 1285, minWidth: 0, maxWidth: 99999, material: "M.500-1" },
+        { windowType: "kipp", position: "left", minHeight: 1286, maxHeight: 1525, minWidth: 0, maxWidth: 99999, material: "M.750-1" }
+    ];
+
+    // KIPP - RECHTS (basierend auf FFH = Höhe - gleich wie links)
+    const kippRight = [
+        { windowType: "kipp", position: "right", minHeight: 0, maxHeight: 860, minWidth: 0, maxWidth: 99999, material: "AWDR" },
+        { windowType: "kipp", position: "right", minHeight: 861, maxHeight: 1285, minWidth: 0, maxWidth: 99999, material: "M.500-1" },
+        { windowType: "kipp", position: "right", minHeight: 1286, maxHeight: 1525, minWidth: 0, maxWidth: 99999, material: "M.750-1" }
+    ];
+
+    // KIPP - OBEN (basierend auf FFB = Breite)
+    const kippTop = [
+        { windowType: "kipp", position: "top", minWidth: 326, maxWidth: 710, minHeight: 0, maxHeight: 99999, material: "GAM.800 + GRT" },
+        { windowType: "kipp", position: "top", minWidth: 711, maxWidth: 1050, minHeight: 0, maxHeight: 99999, material: "GAM.1050-1 + GRT" },
+        { windowType: "kipp", position: "top", minWidth: 1051, maxWidth: 1400, minHeight: 0, maxHeight: 99999, material: "GAM.1400-1 + GRT (2x)" },
+        { windowType: "kipp", position: "top", minWidth: 1401, maxWidth: 1800, minHeight: 0, maxHeight: 99999, material: "GAM.1800-2 + GRT (2x)" },
+        { windowType: "kipp", position: "top", minWidth: 1801, maxWidth: 2300, minHeight: 0, maxHeight: 99999, material: "GAM.2300-3 + GRT (2x)" }
+    ];
+
+    // KIPP - UNTEN (basierend auf FFB = Breite)
+    const kippBottom = [
+        { windowType: "kipp", position: "bottom", minWidth: 326, maxWidth: 990, minHeight: 0, maxHeight: 99999, material: "KB + SL (2x)" },
+        { windowType: "kipp", position: "bottom", minWidth: 991, maxWidth: 1790, minHeight: 0, maxHeight: 99999, material: "KB + SL (3x)" },
+        { windowType: "kipp", position: "bottom", minWidth: 1791, maxWidth: 2300, minHeight: 0, maxHeight: 99999, material: "KB + SL (4x)" }
+    ];
+
     // Beispieldaten für andere Fenstertypen
     const otherTypes = [
-        { windowType: "kipp", position: "left", minHeight: 800, maxHeight: 1400, minWidth: 0, maxWidth: 99999, material: "Seitenprofil Kipp" },
-        { windowType: "kipp", position: "right", minWidth: 600, maxWidth: 1200, minHeight: 0, maxHeight: 99999, material: "Profil Kipp" },
-        { windowType: "kipp", position: "top", minHeight: 800, maxHeight: 1400, minWidth: 0, maxWidth: 99999, material: "Profil Kipp Oben" },
-        { windowType: "kipp", position: "bottom", minWidth: 600, maxWidth: 1200, minHeight: 0, maxHeight: 99999, material: "Profil Kipp Unten" },
-        
         { windowType: "drehkipp", position: "left", minHeight: 1400, maxHeight: 2000, minWidth: 0, maxWidth: 99999, material: "Seitenprofil DK" },
         { windowType: "drehkipp", position: "right", minWidth: 900, maxWidth: 1600, minHeight: 0, maxHeight: 99999, material: "Profil DK" },
         { windowType: "drehkipp", position: "top", minHeight: 1400, maxHeight: 2000, minWidth: 0, maxWidth: 99999, material: "Profil DK Oben" },
@@ -217,6 +242,10 @@ const initSampleData = async () => {
         ...drehRight,
         ...drehTop,
         ...drehBottom,
+        ...kippLeft,
+        ...kippRight,
+        ...kippTop,
+        ...kippBottom,
         ...otherTypes
     ];
 
