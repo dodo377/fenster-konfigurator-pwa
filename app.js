@@ -1,6 +1,6 @@
 const DB_NAME = "window-door-db";
 const STORE_NAME = "materials";
-const DB_VERSION = 6;
+const DB_VERSION = 7;
 
 const dimensionForm = document.getElementById("dimensionForm");
 const widthInput = document.getElementById("widthInput");
@@ -164,26 +164,26 @@ const initSampleData = async () => {
         { windowType: "dreh", position: "left", minHeight: 2301, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "GAM.2300-3 + MK.250-1 + MK.250-1" }
     ];
 
-    // DREH - RECHTS (basierend auf FFB = Breite)
+    // DREH - RECHTS (basierend auf FFH = Höhe)
     const drehRight = [
-        { windowType: "dreh", position: "right", minWidth: 0, maxWidth: 860, minHeight: 0, maxHeight: 99999, material: "AWDR" },
-        { windowType: "dreh", position: "right", minWidth: 861, maxWidth: 1285, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
-        { windowType: "dreh", position: "right", minWidth: 1286, maxWidth: 1535, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
-        { windowType: "dreh", position: "right", minWidth: 1536, maxWidth: 1785, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" },
-        { windowType: "dreh", position: "right", minWidth: 1786, maxWidth: 2035, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.500-1" },
-        { windowType: "dreh", position: "right", minWidth: 2036, maxWidth: 2285, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.750-1" },
-        { windowType: "dreh", position: "right", minWidth: 2286, maxWidth: 2535, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.500-1 + M.500-1" },
-        { windowType: "dreh", position: "right", minWidth: 2536, maxWidth: 2725, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.750-1 + M.500-1" }
+        { windowType: "dreh", position: "right", minHeight: 0, maxHeight: 860, minWidth: 0, maxWidth: 99999, material: "AWDR" },
+        { windowType: "dreh", position: "right", minHeight: 861, maxHeight: 1285, minWidth: 0, maxWidth: 99999, material: "M.500-1" },
+        { windowType: "dreh", position: "right", minHeight: 1286, maxHeight: 1535, minWidth: 0, maxWidth: 99999, material: "M.750-1" },
+        { windowType: "dreh", position: "right", minHeight: 1536, maxHeight: 1785, minWidth: 0, maxWidth: 99999, material: "MK.500-1 + M.500-1" },
+        { windowType: "dreh", position: "right", minHeight: 1786, maxHeight: 2035, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + M.500-1" },
+        { windowType: "dreh", position: "right", minHeight: 2036, maxHeight: 2285, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + M.750-1" },
+        { windowType: "dreh", position: "right", minHeight: 2286, maxHeight: 2535, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + MK.500-1 + M.500-1" },
+        { windowType: "dreh", position: "right", minHeight: 2536, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + MK.750-1 + M.500-1" }
     ];
 
-    // DREH - OBEN (basierend auf FFH = Höhe)
+    // DREH - OBEN (basierend auf FFB = Breite)
     const drehTop = [
-        { windowType: "dreh", position: "top", minHeight: 271, maxHeight: 600, minWidth: 0, maxWidth: 99999, material: "OS1.600" },
-        { windowType: "dreh", position: "top", minHeight: 601, maxHeight: 800, minWidth: 0, maxWidth: 99999, material: "OS2.800" },
-        { windowType: "dreh", position: "top", minHeight: 801, maxHeight: 1025, minWidth: 0, maxWidth: 99999, material: "OS2.1025-1" },
-        { windowType: "dreh", position: "top", minHeight: 1026, maxHeight: 1250, minWidth: 0, maxWidth: 99999, material: "OS2.1250-1" },
-        { windowType: "dreh", position: "top", minHeight: 1251, maxHeight: 1475, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1" },
-        { windowType: "dreh", position: "top", minHeight: 1476, maxHeight: 1725, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1 + ZSR" }
+        { windowType: "dreh", position: "top", minWidth: 271, maxWidth: 600, minHeight: 0, maxHeight: 99999, material: "OS1.600" },
+        { windowType: "dreh", position: "top", minWidth: 601, maxWidth: 800, minHeight: 0, maxHeight: 99999, material: "OS2.800" },
+        { windowType: "dreh", position: "top", minWidth: 801, maxWidth: 1025, minHeight: 0, maxHeight: 99999, material: "OS2.1025-1" },
+        { windowType: "dreh", position: "top", minWidth: 1026, maxWidth: 1250, minHeight: 0, maxHeight: 99999, material: "OS2.1250-1" },
+        { windowType: "dreh", position: "top", minWidth: 1251, maxWidth: 1475, minHeight: 0, maxHeight: 99999, material: "OS2.1475-1" },
+        { windowType: "dreh", position: "top", minWidth: 1476, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "OS2.1475-1 + ZSR" }
     ];
 
     // DREH - UNTEN (basierend auf FFB = Breite)
@@ -236,26 +236,26 @@ const initSampleData = async () => {
         { windowType: "drehkipp", position: "left", minHeight: 2301, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "GAM.2300-3 + MK.250-1 + MK.250-1" }
     ];
 
-    // DREHKIPP - RECHTS (basierend auf FFB = Breite)
+    // DREHKIPP - RECHTS (basierend auf FFH = Höhe)
     const drehkippRight = [
-        { windowType: "drehkipp", position: "right", minWidth: 0, maxWidth: 860, minHeight: 0, maxHeight: 99999, material: "AWDR" },
-        { windowType: "drehkipp", position: "right", minWidth: 861, maxWidth: 1285, minHeight: 0, maxHeight: 99999, material: "M.500-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 1286, maxWidth: 1535, minHeight: 0, maxHeight: 99999, material: "M.750-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 1536, maxWidth: 1785, minHeight: 0, maxHeight: 99999, material: "MK.500-1 + M.500-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 1786, maxWidth: 2035, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.500-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 2036, maxWidth: 2285, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + M.750-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 2286, maxWidth: 2535, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.500-1 + M.500-1" },
-        { windowType: "drehkipp", position: "right", minWidth: 2536, maxWidth: 2725, minHeight: 0, maxHeight: 99999, material: "MK.750-1 + MK.750-1 + M.500-1" }
+        { windowType: "drehkipp", position: "right", minHeight: 0, maxHeight: 860, minWidth: 0, maxWidth: 99999, material: "AWDR" },
+        { windowType: "drehkipp", position: "right", minHeight: 861, maxHeight: 1285, minWidth: 0, maxWidth: 99999, material: "M.500-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 1286, maxHeight: 1535, minWidth: 0, maxWidth: 99999, material: "M.750-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 1536, maxHeight: 1785, minWidth: 0, maxWidth: 99999, material: "MK.500-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 1786, maxHeight: 2035, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 2036, maxHeight: 2285, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + M.750-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 2286, maxHeight: 2535, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + MK.500-1 + M.500-1" },
+        { windowType: "drehkipp", position: "right", minHeight: 2536, maxHeight: 2725, minWidth: 0, maxWidth: 99999, material: "MK.750-1 + MK.750-1 + M.500-1" }
     ];
 
-    // DREHKIPP - OBEN (basierend auf FFH = Höhe)
+    // DREHKIPP - OBEN (basierend auf FFB = Breite)
     const drehkippTop = [
-        { windowType: "drehkipp", position: "top", minHeight: 271, maxHeight: 600, minWidth: 0, maxWidth: 99999, material: "OS1.600" },
-        { windowType: "drehkipp", position: "top", minHeight: 601, maxHeight: 800, minWidth: 0, maxWidth: 99999, material: "OS2.800" },
-        { windowType: "drehkipp", position: "top", minHeight: 801, maxHeight: 1025, minWidth: 0, maxWidth: 99999, material: "OS2.1025-1" },
-        { windowType: "drehkipp", position: "top", minHeight: 1026, maxHeight: 1250, minWidth: 0, maxWidth: 99999, material: "OS2.1250-1" },
-        { windowType: "drehkipp", position: "top", minHeight: 1251, maxHeight: 1475, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1" },
-        { windowType: "drehkipp", position: "top", minHeight: 1476, maxHeight: 1725, minWidth: 0, maxWidth: 99999, material: "OS2.1475-1 + ZSR" }
+        { windowType: "drehkipp", position: "top", minWidth: 271, maxWidth: 600, minHeight: 0, maxHeight: 99999, material: "OS1.600" },
+        { windowType: "drehkipp", position: "top", minWidth: 601, maxWidth: 800, minHeight: 0, maxHeight: 99999, material: "OS2.800" },
+        { windowType: "drehkipp", position: "top", minWidth: 801, maxWidth: 1025, minHeight: 0, maxHeight: 99999, material: "OS2.1025-1" },
+        { windowType: "drehkipp", position: "top", minWidth: 1026, maxWidth: 1250, minHeight: 0, maxHeight: 99999, material: "OS2.1250-1" },
+        { windowType: "drehkipp", position: "top", minWidth: 1251, maxWidth: 1475, minHeight: 0, maxHeight: 99999, material: "OS2.1475-1" },
+        { windowType: "drehkipp", position: "top", minWidth: 1476, maxWidth: 1725, minHeight: 0, maxHeight: 99999, material: "OS2.1475-1 + ZSR" }
     ];
 
     // DREHKIPP - UNTEN (basierend auf FFB = Breite)
