@@ -1,6 +1,6 @@
 const DB_NAME = "window-door-db";
 const STORE_NAME = "materials";
-const DB_VERSION = 8;
+const DB_VERSION = 9;
 
 const widthInput = document.getElementById("widthInput");
 const heightInput = document.getElementById("heightInput");
