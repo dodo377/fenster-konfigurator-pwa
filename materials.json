@@ -1,0 +1,749 @@
+[
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 231,
+    "maxHeight": 325,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAK.465"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 326,
+    "maxHeight": 510,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.800"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 511,
+    "maxHeight": 710,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.800"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 711,
+    "maxHeight": 980,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1050-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 981,
+    "maxHeight": 1400,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1400-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 1401,
+    "maxHeight": 1800,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1800-2"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 1801,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3"
+  },
+  {
+    "windowType": "dreh",
+    "position": "right",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3 + MK.250-1 + MK.250-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 0,
+    "maxHeight": 860,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 861,
+    "maxHeight": 1285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 1286,
+    "maxHeight": 1535,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 1536,
+    "maxHeight": 1785,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 1786,
+    "maxHeight": 2035,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 2036,
+    "maxHeight": 2285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + M.750-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 2286,
+    "maxHeight": 2535,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "left",
+    "minHeight": 2536,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + MK.750-1 + M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 271,
+    "maxWidth": 600,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS1.600"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 601,
+    "maxWidth": 800,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.800"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 801,
+    "maxWidth": 1025,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1025-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 1026,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1250-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 1251,
+    "maxWidth": 1475,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1475-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "top",
+    "minWidth": 1476,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1475-1 + ZSR"
+  },
+  {
+    "windowType": "dreh",
+    "position": "bottom",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "dreh",
+    "position": "bottom",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "bottom",
+    "minWidth": 1251,
+    "maxWidth": 1500,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "dreh",
+    "position": "bottom",
+    "minWidth": 1501,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "kipp",
+    "position": "left",
+    "minHeight": 0,
+    "maxHeight": 860,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "kipp",
+    "position": "left",
+    "minHeight": 861,
+    "maxHeight": 1285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "kipp",
+    "position": "left",
+    "minHeight": 1286,
+    "maxHeight": 1525,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "kipp",
+    "position": "right",
+    "minHeight": 0,
+    "maxHeight": 860,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "kipp",
+    "position": "right",
+    "minHeight": 861,
+    "maxHeight": 1285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "kipp",
+    "position": "right",
+    "minHeight": 1286,
+    "maxHeight": 1525,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "kipp",
+    "position": "top",
+    "minWidth": 326,
+    "maxWidth": 710,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "GAM.800 + GRT"
+  },
+  {
+    "windowType": "kipp",
+    "position": "top",
+    "minWidth": 711,
+    "maxWidth": 1050,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "GAM.1050-1 + GRT"
+  },
+  {
+    "windowType": "kipp",
+    "position": "top",
+    "minWidth": 1051,
+    "maxWidth": 1400,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "GAM.1400-1 + GRT (2x)"
+  },
+  {
+    "windowType": "kipp",
+    "position": "top",
+    "minWidth": 1401,
+    "maxWidth": 1800,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "GAM.1800-2 + GRT (2x)"
+  },
+  {
+    "windowType": "kipp",
+    "position": "top",
+    "minWidth": 1801,
+    "maxWidth": 2300,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "GAM.2300-3 + GRT (2x)"
+  },
+  {
+    "windowType": "kipp",
+    "position": "bottom",
+    "minWidth": 326,
+    "maxWidth": 990,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "KB + SL (2x)"
+  },
+  {
+    "windowType": "kipp",
+    "position": "bottom",
+    "minWidth": 991,
+    "maxWidth": 1790,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "KB + SL (3x)"
+  },
+  {
+    "windowType": "kipp",
+    "position": "bottom",
+    "minWidth": 1791,
+    "maxWidth": 2300,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "KB + SL (4x)"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 231,
+    "maxHeight": 325,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAK.465"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 326,
+    "maxHeight": 510,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.800"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 511,
+    "maxHeight": 710,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.800"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 711,
+    "maxHeight": 980,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1050-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 981,
+    "maxHeight": 1400,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1400-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 1401,
+    "maxHeight": 1800,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.1800-2"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 1801,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "right",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3 + MK.250-1 + MK.250-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 0,
+    "maxHeight": 860,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 861,
+    "maxHeight": 1285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 1286,
+    "maxHeight": 1535,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 1536,
+    "maxHeight": 1785,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 1786,
+    "maxHeight": 2035,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 2036,
+    "maxHeight": 2285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + M.750-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 2286,
+    "maxHeight": 2535,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "left",
+    "minHeight": 2536,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1 + MK.750-1 + M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 271,
+    "maxWidth": 600,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS1.600"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 601,
+    "maxWidth": 800,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.800"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 801,
+    "maxWidth": 1025,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1025-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 1026,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1250-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 1251,
+    "maxWidth": 1475,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1475-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "top",
+    "minWidth": 1476,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1475-1 + ZSR"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "bottom",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "bottom",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "bottom",
+    "minWidth": 1251,
+    "maxWidth": 1500,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "drehkipp",
+    "position": "bottom",
+    "minWidth": 1501,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 411,
+    "maxHeight": 710,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.800"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 711,
+    "maxHeight": 980,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.1050-1.E3"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 981,
+    "maxHeight": 1400,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.1400-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 1401,
+    "maxHeight": 1800,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.1800-2"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 1801,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.2300-3"
+  },
+  {
+    "windowType": "stulp",
+    "position": "right",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.2300-3 + MS.SU.250-1 + MS.SO.250-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "left",
+    "minHeight": 801,
+    "maxHeight": 1600,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "ZV-FT (1x)"
+  },
+  {
+    "windowType": "stulp",
+    "position": "left",
+    "minHeight": 1601,
+    "maxHeight": 2400,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "ZV-FT (2x)"
+  },
+  {
+    "windowType": "stulp",
+    "position": "left",
+    "minHeight": 2401,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "ZV-FT (3x)"
+  },
+  {
+    "windowType": "stulp",
+    "position": "top",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "stulp",
+    "position": "top",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "top",
+    "minWidth": 1251,
+    "maxWidth": 1500,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "top",
+    "minWidth": 1501,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "bottom",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "AWDR"
+  },
+  {
+    "windowType": "stulp",
+    "position": "bottom",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "bottom",
+    "minWidth": 1251,
+    "maxWidth": 1500,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "stulp",
+    "position": "bottom",
+    "minWidth": 1501,
+    "maxWidth": 1725,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1 + M.500-1"
+  }
+]

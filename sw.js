@@ -1,16 +1,18 @@
-const CACHE_NAME = "fenster-konfigurator-v14";
+const CACHE_NAME = `fenster-konfigurator-${new Date().getTime()}`;
 const STATIC_ASSETS = [
     "./index.html",
     "./styles.css",
     "./app.js",
+    "./materials.json",
     "./manifest.json",
-    "./icon-192.png",
-    "./icon-512.png",
-    "./apple-touch-icon.png",
-    "./dreh.png",
-    "./kipp.png",
-    "./dreh_kipp.png",
-    "./stulp.svg",
+    "./images/icon-192.png",
+    "./images/icon-512.png",
+    "./images/apple-touch-icon.png",
+    "./images/LOGO_HR.png",
+    "./images/dreh.png",
+    "./images/kipp.png",
+    "./images/dreh_kipp.png",
+    "./images/stulp.svg",
 ];
 
 self.addEventListener("install", (event) => {
