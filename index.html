@@ -7,8 +7,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Fenster-Konfigurator" />
-    <title>Fenster-Konfigurator</title>
+    <meta name="apple-mobile-web-app-title" content="Material-Konfigurator" />
+    <title>Material-Konfigurator</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="images/icon-192.png" type="image/png" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
@@ -18,39 +18,67 @@
     <main class="app">
         <header class="app__header">
             <div>
-                <h1>Fenster-Konfigurator</h1>
+                <h1>Material-Konfigurator</h1>
                 <p class="subtitle">Fenster & Türen – Material-Übersicht</p>
             </div>
             <img src="images/LOGO_HR.png" alt="Logo" class="header__logo" />
             <div class="header__right">
+                <span id="dbVersionBadge" class="db-version-badge"></span>
                 <p id="offlineState" class="status-inline">Online</p>
                 <button id="installBtn" class="btn btn--primary" hidden>Installieren</button>
             </div>
         </header>
 
-        <section class="card">
-            <h4>Fenstertyp wählen</h4>
-            <div class="selector">
-                <label class="selector__option">
-                    <input type="radio" name="windowType" value="dreh" checked />
-                    <span>Dreh</span>
-                </label>
-                <label class="selector__option">
-                    <input type="radio" name="windowType" value="kipp" />
-                    <span>Kipp</span>
-                </label>
-                <label class="selector__option">
-                    <input type="radio" name="windowType" value="drehkipp" />
-                    <span>Drehkipp</span>
-                </label>
-                <label class="selector__option">
-                    <input type="radio" name="windowType" value="stulp" />
-                    <span>Stulp</span>
-                </label>
+        <div class="app__left">
+        <section class="card card--info">
+            <h4>Vorgangsdaten</h4>
+            <div class="form">
+                <div class="info-grid">
+                    <label class="field field--compact">
+                        <span>Vorgangsnummer</span>
+                        <input id="orderNumber" type="text" placeholder="z. B. V-2024-001" />
+                    </label>
+                    <label class="field field--compact">
+                        <span>Name</span>
+                        <input id="customerName" type="text" placeholder="z. B. Mustermann" />
+                    </label>
+                    <label class="field field--compact">
+                        <span>Position</span>
+                        <input id="position" type="text" placeholder="z. B. EG-WZ-01" />
+                    </label>
+                    <label class="field field--compact">
+                        <span>Menge</span>
+                        <input id="quantity" type="number" placeholder="1" value="1" min="1" />
+                    </label>
+                </div>
             </div>
         </section>
 
-        <section class="card">
+        <section class="card card--type">
+            <h4>Produktart wählen</h4>
+            <div class="selector selector--category">
+                <label class="selector__option">
+                    <input type="radio" name="productCategory" value="fenster" checked />
+                    <span>Fenster</span>
+                </label>
+                <label class="selector__option">
+                    <input type="radio" name="productCategory" value="tuer" />
+                    <span>Balkontür</span>
+                </label>
+            </div>
+            
+            <label class="field" style="margin-top: 12px;">
+                <span>Typ wählen</span>
+                <select id="typeSelector" class="type-select">
+                    <option value="dreh">Dreh</option>
+                    <option value="kipp">Kipp</option>
+                    <option value="drehkipp">Drehkipp</option>
+                    <option value="stulp">Stulp</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="card card--measure">
             <h4>Maße eingeben</h4>
             <div class="form">
                 <div class="dimension-inputs">
@@ -63,10 +91,17 @@
                         <input id="heightInput" type="number" placeholder="z. B. 1500" required />
                     </label>
                 </div>
+                <div class="form__actions" style="margin-top: 10px;">
+                    <button id="saveRowBtn" class="btn btn--primary" type="button">Daten Zwischenspeichern</button>
+                    <button id="exportBtn" class="btn btn--secondary" type="button">In Datei schreiben</button>
+                    <button id="importBtn" class="btn btn--ghost" type="button">Datei laden</button>
+                    <input id="importFile" type="file" accept=".xlsx" hidden />
+                </div>
             </div>
         </section>
+        </div>
 
-        <section class="card">
+        <section class="card card--window">
             <div class="window-display">
                 <div class="material material--top" id="materialTop">—</div>
                 <div class="window-row">
@@ -83,6 +118,7 @@
         
     </main>
 
+    <script src="vendor/xlsx.full.min.js"></script>
     <script src="app.js" defer></script>
 </body>
 </html>

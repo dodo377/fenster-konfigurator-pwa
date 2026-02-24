@@ -1,0 +1,27 @@
+{
+  "name": "window_door",
+  "version": "1.0.0",
+  "description": "Progressive Web App für Fenster- und Türen-Konfiguration mit automatischer Material-Übersicht basierend auf Falzmaßen.",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dodo377/fenster-konfigurator-pwa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dodo377/fenster-konfigurator-pwa/issues"
+  },
+  "homepage": "https://github.com/dodo377/fenster-konfigurator-pwa#readme",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

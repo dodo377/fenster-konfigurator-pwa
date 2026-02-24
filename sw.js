@@ -5,6 +5,7 @@ const STATIC_ASSETS = [
     "./app.js",
     "./materials.json",
     "./manifest.json",
+    "./vendor/xlsx.full.min.js",
     "./images/icon-192.png",
     "./images/icon-512.png",
     "./images/apple-touch-icon.png",
@@ -41,26 +42,25 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
     if (event.request.method !== "GET") return;
+    
+    // Keine Extension-URLs oder URLs ohne http/https cachen
+    if (!event.request.url.startsWith("http")) return;
 
-    const requestUrl = new URL(event.request.url);
-
-    if (requestUrl.origin === location.origin) {
-        event.respondWith(
-            caches.match(event.request).then((cachedResponse) => {
-                if (cachedResponse) return cachedResponse;
-                return fetch(event.request)
-                    .then((response) => {
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) return cachedResponse;
+            return fetch(event.request)
+                .then((response) => {
+                    // Nur erfolgreiches Cachen von http/https Requests
+                    if (response.ok && event.request.url.startsWith("http")) {
                         const responseClone = response.clone();
                         caches.open(CACHE_NAME).then((cache) => {
                             cache.put(event.request, responseClone);
                         });
-                        return response;
-                    })
-                    .catch(() => caches.match("./index.html"));
-            })
-        );
-        return;
-    }
-
-    event.respondWith(fetch(event.request).catch(() => caches.match("./index.html")));
+                    }
+                    return response;
+                })
+                .catch(() => caches.match("./index.html"));
+        })
+    );
 });

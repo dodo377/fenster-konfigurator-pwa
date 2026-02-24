@@ -16,3 +16,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+*.md
+docs/
+docs/pdf/
+docs/testing/

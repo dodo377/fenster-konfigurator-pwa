@@ -1,6 +1,6 @@
 [
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 231,
     "maxHeight": 325,
@@ -9,7 +9,7 @@
     "material": "GAK.465"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 326,
     "maxHeight": 510,
@@ -18,7 +18,7 @@
     "material": "GAM.800"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 511,
     "maxHeight": 710,
@@ -27,7 +27,7 @@
     "material": "GAM.800"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 711,
     "maxHeight": 980,
@@ -36,7 +36,7 @@
     "material": "GAM.1050-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 981,
     "maxHeight": 1400,
@@ -45,7 +45,7 @@
     "material": "GAM.1400-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 1401,
     "maxHeight": 1800,
@@ -54,7 +54,7 @@
     "material": "GAM.1800-2"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 1801,
     "maxHeight": 2300,
@@ -63,7 +63,7 @@
     "material": "GAM.2300-3"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "right",
     "minHeight": 2301,
     "maxHeight": 2725,
@@ -72,16 +72,16 @@
     "material": "GAM.2300-3 + MK.250-1 + MK.250-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 0,
     "maxHeight": 860,
     "minWidth": 0,
     "maxWidth": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 861,
     "maxHeight": 1285,
@@ -90,7 +90,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 1286,
     "maxHeight": 1535,
@@ -99,7 +99,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 1536,
     "maxHeight": 1785,
@@ -108,7 +108,7 @@
     "material": "MK.500-1 + M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 1786,
     "maxHeight": 2035,
@@ -117,7 +117,7 @@
     "material": "MK.750-1 + M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 2036,
     "maxHeight": 2285,
@@ -126,7 +126,7 @@
     "material": "MK.750-1 + M.750-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 2286,
     "maxHeight": 2535,
@@ -135,7 +135,7 @@
     "material": "MK.750-1 + MK.500-1 + M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "left",
     "minHeight": 2536,
     "maxHeight": 2725,
@@ -144,7 +144,7 @@
     "material": "MK.750-1 + MK.750-1 + M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 271,
     "maxWidth": 600,
@@ -153,7 +153,7 @@
     "material": "OS1.600"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 601,
     "maxWidth": 800,
@@ -162,7 +162,7 @@
     "material": "OS2.800"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 801,
     "maxWidth": 1025,
@@ -171,7 +171,7 @@
     "material": "OS2.1025-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 1026,
     "maxWidth": 1250,
@@ -180,7 +180,7 @@
     "material": "OS2.1250-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 1251,
     "maxWidth": 1475,
@@ -189,7 +189,7 @@
     "material": "OS2.1475-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "top",
     "minWidth": 1476,
     "maxWidth": 1725,
@@ -198,16 +198,16 @@
     "material": "OS2.1475-1 + ZSR"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "bottom",
     "minWidth": 0,
     "maxWidth": 840,
     "minHeight": 0,
     "maxHeight": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "bottom",
     "minWidth": 841,
     "maxWidth": 1250,
@@ -216,7 +216,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "bottom",
     "minWidth": 1251,
     "maxWidth": 1500,
@@ -225,7 +225,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "dreh",
+    "windowType": "fenster-dreh",
     "position": "bottom",
     "minWidth": 1501,
     "maxWidth": 1725,
@@ -234,16 +234,16 @@
     "material": "MK.500-1 + M.500-1"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "left",
     "minHeight": 0,
     "maxHeight": 860,
     "minWidth": 0,
     "maxWidth": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "left",
     "minHeight": 861,
     "maxHeight": 1285,
@@ -252,7 +252,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "left",
     "minHeight": 1286,
     "maxHeight": 1525,
@@ -261,16 +261,16 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "right",
     "minHeight": 0,
     "maxHeight": 860,
     "minWidth": 0,
     "maxWidth": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "right",
     "minHeight": 861,
     "maxHeight": 1285,
@@ -279,7 +279,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "right",
     "minHeight": 1286,
     "maxHeight": 1525,
@@ -288,7 +288,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "top",
     "minWidth": 326,
     "maxWidth": 710,
@@ -297,7 +297,7 @@
     "material": "GAM.800 + GRT"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "top",
     "minWidth": 711,
     "maxWidth": 1050,
@@ -306,7 +306,7 @@
     "material": "GAM.1050-1 + GRT"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "top",
     "minWidth": 1051,
     "maxWidth": 1400,
@@ -315,7 +315,7 @@
     "material": "GAM.1400-1 + GRT (2x)"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "top",
     "minWidth": 1401,
     "maxWidth": 1800,
@@ -324,7 +324,7 @@
     "material": "GAM.1800-2 + GRT (2x)"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "top",
     "minWidth": 1801,
     "maxWidth": 2300,
@@ -333,7 +333,7 @@
     "material": "GAM.2300-3 + GRT (2x)"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "bottom",
     "minWidth": 326,
     "maxWidth": 990,
@@ -342,7 +342,7 @@
     "material": "KB + SL (2x)"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "bottom",
     "minWidth": 991,
     "maxWidth": 1790,
@@ -351,7 +351,7 @@
     "material": "KB + SL (3x)"
   },
   {
-    "windowType": "kipp",
+    "windowType": "fenster-kipp",
     "position": "bottom",
     "minWidth": 1791,
     "maxWidth": 2300,
@@ -360,7 +360,7 @@
     "material": "KB + SL (4x)"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 231,
     "maxHeight": 325,
@@ -369,7 +369,7 @@
     "material": "GAK.465"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 326,
     "maxHeight": 510,
@@ -378,7 +378,7 @@
     "material": "GAM.800"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 511,
     "maxHeight": 710,
@@ -387,7 +387,7 @@
     "material": "GAM.800"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 711,
     "maxHeight": 980,
@@ -396,7 +396,7 @@
     "material": "GAM.1050-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 981,
     "maxHeight": 1400,
@@ -405,7 +405,7 @@
     "material": "GAM.1400-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 1401,
     "maxHeight": 1800,
@@ -414,7 +414,7 @@
     "material": "GAM.1800-2"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 1801,
     "maxHeight": 2300,
@@ -423,7 +423,7 @@
     "material": "GAM.2300-3"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "right",
     "minHeight": 2301,
     "maxHeight": 2725,
@@ -432,16 +432,16 @@
     "material": "GAM.2300-3 + MK.250-1 + MK.250-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 0,
     "maxHeight": 860,
     "minWidth": 0,
     "maxWidth": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 861,
     "maxHeight": 1285,
@@ -450,7 +450,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 1286,
     "maxHeight": 1535,
@@ -459,7 +459,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 1536,
     "maxHeight": 1785,
@@ -468,7 +468,7 @@
     "material": "MK.500-1 + M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 1786,
     "maxHeight": 2035,
@@ -477,7 +477,7 @@
     "material": "MK.750-1 + M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 2036,
     "maxHeight": 2285,
@@ -486,7 +486,7 @@
     "material": "MK.750-1 + M.750-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 2286,
     "maxHeight": 2535,
@@ -495,7 +495,7 @@
     "material": "MK.750-1 + MK.500-1 + M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "left",
     "minHeight": 2536,
     "maxHeight": 2725,
@@ -504,7 +504,7 @@
     "material": "MK.750-1 + MK.750-1 + M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 271,
     "maxWidth": 600,
@@ -513,7 +513,7 @@
     "material": "OS1.600"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 601,
     "maxWidth": 800,
@@ -522,7 +522,7 @@
     "material": "OS2.800"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 801,
     "maxWidth": 1025,
@@ -531,7 +531,7 @@
     "material": "OS2.1025-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 1026,
     "maxWidth": 1250,
@@ -540,7 +540,7 @@
     "material": "OS2.1250-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 1251,
     "maxWidth": 1475,
@@ -549,7 +549,7 @@
     "material": "OS2.1475-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "top",
     "minWidth": 1476,
     "maxWidth": 1725,
@@ -558,16 +558,16 @@
     "material": "OS2.1475-1 + ZSR"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "bottom",
     "minWidth": 0,
     "maxWidth": 840,
     "minHeight": 0,
     "maxHeight": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "bottom",
     "minWidth": 841,
     "maxWidth": 1250,
@@ -576,7 +576,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "bottom",
     "minWidth": 1251,
     "maxWidth": 1500,
@@ -585,7 +585,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "drehkipp",
+    "windowType": "fenster-drehkipp",
     "position": "bottom",
     "minWidth": 1501,
     "maxWidth": 1725,
@@ -594,7 +594,7 @@
     "material": "MK.500-1 + M.500-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 411,
     "maxHeight": 710,
@@ -603,7 +603,7 @@
     "material": "GASM.800"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 711,
     "maxHeight": 980,
@@ -612,7 +612,7 @@
     "material": "GASM.1050-1.E3"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 981,
     "maxHeight": 1400,
@@ -621,7 +621,7 @@
     "material": "GASM.GZ.1400-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 1401,
     "maxHeight": 1800,
@@ -630,7 +630,7 @@
     "material": "GASM.GZ.1800-2"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 1801,
     "maxHeight": 2300,
@@ -639,7 +639,7 @@
     "material": "GASM.GZ.2300-3"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "right",
     "minHeight": 2301,
     "maxHeight": 2725,
@@ -648,7 +648,7 @@
     "material": "GASM.GZ.2300-3 + MS.SU.250-1 + MS.SO.250-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "left",
     "minHeight": 801,
     "maxHeight": 1600,
@@ -657,7 +657,7 @@
     "material": "ZV-FT (1x)"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "left",
     "minHeight": 1601,
     "maxHeight": 2400,
@@ -666,7 +666,7 @@
     "material": "ZV-FT (2x)"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "left",
     "minHeight": 2401,
     "maxHeight": 2725,
@@ -675,16 +675,16 @@
     "material": "ZV-FT (3x)"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "top",
     "minWidth": 0,
     "maxWidth": 840,
     "minHeight": 0,
     "maxHeight": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "top",
     "minWidth": 841,
     "maxWidth": 1250,
@@ -693,7 +693,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "top",
     "minWidth": 1251,
     "maxWidth": 1500,
@@ -702,7 +702,7 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "top",
     "minWidth": 1501,
     "maxWidth": 1725,
@@ -711,16 +711,16 @@
     "material": "MK.500-1 + M.500-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "bottom",
     "minWidth": 0,
     "maxWidth": 840,
     "minHeight": 0,
     "maxHeight": 99999,
-    "material": "AWDR"
+    "material": "ASP ER-A.F"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "bottom",
     "minWidth": 841,
     "maxWidth": 1250,
@@ -729,7 +729,7 @@
     "material": "M.500-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "bottom",
     "minWidth": 1251,
     "maxWidth": 1500,
@@ -738,12 +738,237 @@
     "material": "M.750-1"
   },
   {
-    "windowType": "stulp",
+    "windowType": "fenster-stulp",
     "position": "bottom",
     "minWidth": 1501,
     "maxWidth": 1725,
     "minHeight": 0,
     "maxHeight": 99999,
     "material": "MK.500-1 + M.500-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "right",
+    "minHeight": 1801,
+    "maxHeight": 2000,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "right",
+    "minHeight": 2001,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "right",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GAM.2300-3+MK.250-1+MK.250-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "left",
+    "minHeight": 1801,
+    "maxHeight": 2035,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1+M.500-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "left",
+    "minHeight": 2036,
+    "maxHeight": 2285,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1+M.750-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "left",
+    "minHeight": 2286,
+    "maxHeight": 2535,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1+MK.500-1+M.500-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "left",
+    "minHeight": 2536,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "MK.750-1+MK.750-1+M.500-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "top",
+    "minWidth": 371,
+    "maxWidth": 600,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS1.600"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "top",
+    "minWidth": 601,
+    "maxWidth": 800,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.800"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "top",
+    "minWidth": 801,
+    "maxWidth": 1025,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1025-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "top",
+    "minWidth": 1026,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1250-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "top",
+    "minWidth": 1251,
+    "maxWidth": 1460,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "OS2.1475-1"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "bottom",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "ASP ER-A.F"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "bottom",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1.BS16"
+  },
+  {
+    "windowType": "tuer-drehkipp",
+    "position": "bottom",
+    "minWidth": 1251,
+    "maxWidth": 1460,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1.BS16+MK.500-1.BS16"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "right",
+    "minHeight": 1801,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.2300-3"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "right",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "GASM.GZ.2300-3+MS.SU.250-1+MS.SO.250-1"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "left",
+    "minHeight": 1801,
+    "maxHeight": 2300,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "ZV-FT (2x)"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "left",
+    "minHeight": 2301,
+    "maxHeight": 2725,
+    "minWidth": 0,
+    "maxWidth": 99999,
+    "material": "ZV-FT (3x)"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "top",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "ASP ER-A.F"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "top",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.500-1"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "top",
+    "minWidth": 1251,
+    "maxWidth": 1460,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "M.750-1"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "bottom",
+    "minWidth": 0,
+    "maxWidth": 840,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "ASP ER-A.F"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "bottom",
+    "minWidth": 841,
+    "maxWidth": 1250,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1.BS16"
+  },
+  {
+    "windowType": "tuer-stulp",
+    "position": "bottom",
+    "minWidth": 1251,
+    "maxWidth": 1460,
+    "minHeight": 0,
+    "maxHeight": 99999,
+    "material": "MK.500-1.BS16+MK.500-1.BS16"
   }
 ]

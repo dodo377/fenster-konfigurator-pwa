@@ -1,9 +1,17 @@
+# 📂 Projekt-Kontext
+Die vorliegende Testdokumentation verifiziert die Anforderungen aus dem **Lastenheft** und gleicht sie mit der technischen Umsetzung im **Pflichtenheft** ab.
+
+## Abgleich Soll/Ist
+- Anforderung: „Offline-Nutzung“ -> Umgesetzt via Service Worker mit Cache-First-Strategie (siehe TC-PWA-01).
+- Anforderung: „Materialberechnung“ -> Korrekte Anwendung des -40mm Offsets in der Logik (siehe TC-FUN-01).
+- Anforderung: „Tablet-Optimierung“ -> Responsive Grid-Layout für iPad Pro 12.9" (siehe UI-Check).
+
 # 📋 Testdokumentation: Fenster-Konfigurator PWA
 
 **Projekt**: Fenster- & Türen Material-Übersicht  
-**Version**: 1.0 (DB-Version: 8)  
+**Version**: 1.0 (DB-Version: 13)  
 **Status**: In Prüfung
-**Datum**: 19.02.2026
+**Datum**: 24.02.2026
 
 ---
 
@@ -13,16 +21,16 @@ Diese Phase definiert den Rahmen der Qualitätssicherung.
 
 ### Testobjekte
 
-- **Frontend**: index.html, styles.css (Responsive Design für Tablets)
-- **Logik**: app.js (Berechnung mit -40mm Offset)
-- **Daten**: materials.json (83 Datensätze in IndexedDB)
-- **PWA-Infrastruktur**: sw.js (Caching), manifest.json
+- **Frontend**: index.html, styles.css (Layout-Stabilität bei Orientierungswechsel)
+- **Logik**: app.js (Berechnungsalgorithmus und IndexedDB-Interaktion)
+- **Daten**: materials.json (Vollständigkeit der 108 Datensätze)
+- **PWA-Infrastruktur**: sw.js (Caching), manifest.json (Installierbarkeit)
 
 ### Testziele
 
-1. Verifizierung der Materialberechnung für alle 4 Fenstertypen
-2. Nachweis der 100%igen Offline-Fähigkeit (Baustellentauglichkeit)
-3. Sicherstellung der korrekten Installation auf Mobilgeräten (Tablets)
+1. Verifizierung der Materialberechnung (Offset-Logik) für Fenster und Balkontüren.
+2. Nachweis der 100%igen Offline-Fähigkeit für den Einsatz auf Baustellen.
+3. Validierung des Excel-Workflows (Import bestehender Daten & Export ohne Header).
 
 ---
 
@@ -30,66 +38,50 @@ Diese Phase definiert den Rahmen der Qualitätssicherung.
 
 Hier werden die theoretischen Testfälle aus der Logik abgeleitet.
 
-### A. Funktionale Berechnungslogik (Äquivalenzklassen & Grenzwerte)
+### A. Funktionale Tests (Logik & Berechnung)
 
 **Hinweis**: Interner Abzug von 40mm beachten.
 
-| ID | Testfall | Eingabe (B x H) | Erwartetes Ergebnis | Methode |
+| ID | Testfall | Eingabe | Erwartetes Ergebnis | Status |
 |---|---|---|---|---|
-| **TC-01** | Standard Drehfenster | 850 x 1250 | Oben: OS2.1025-1 Unten: AWDR, Rechts: GAM.1400-1 Links: M.500-1 | Äquivalenzklasse |
-| **TC-02** | Standard Kippfenster | 850 x 1250 | Oben: GAM.1050-1 + GRT Unten: KB + SL (2x), Rechts: M.500-1 Links: M.500-1 | Äquivalenzklasse |
-| **TC-03** | Standard Drehkippfenster | 850 x 1250 | Oben: OS2.1025-1 Unten: AWDR, Rechts: GAM.1400-1 Links: M.500-1 | Äquivalenzklasse |
-| **TC-04** | Standard Stulpfenster | 850 x 1250 | Oben: AWDR Unten: AWDR, Rechts: GASM.GZ.1400-1 Links: ZV-FT (1x)| Äquivalenzklasse |
-| **TC-05** | Grenzwert Stulp | 880 (B) | Oben: AWDR (Suche mit 840mm) | Grenzwerttest |
-| **TC-06** | Grenzwert Dreh | 880 (B) | Oben: AWDR (Suche mit 840mm) | Grenzwerttest |
-| **TC-07** | Grenzwert Kipp | 900 (B) | Rechts: AWDR (Suche mit 860mm) | Grenzwerttest |
-| **TC-08** | Grenzwert Drehkipp | 900 (B) | Oben: AWDR (Suche mit 860mm) | Grenzwerttest |
-| **TC-09** | Minimalmaß | 100 x 100 | Anzeige: "—" (Kein Match in DB) | Negativtest |
+| **TC-FUN-01** | Berechnung Offset | Breite: 1000, Höhe: 1500 | Interne Suche mit 960x1460mm | ✅ Pass |
+| **TC-FUN-02** | Material-Lookup | Fenster Drehkipp, Pos: Rechts | Korrektes GAM/GAK-Material aus DB | ✅ Pass |
+| **TC-FUN-03** | Persistenz| Button „Zwischenspeichern“ | Daten in localStorage (Key: exportRows) | ✅ Pass |
+| **TC-FUN-04** | Excel-Export | Button „In Datei schreiben“ | .xlsx Download ohne Header-Zeile, neuer Dateiname| ✅ Pass |
+| **TC-FUN-05** | Datei laden | Button „Datei laden“ | .xlsx Datei laden, Daten inkl. Header-Zeile in localStorage (Key: exportRows)| ✅ Pass |
 
-### B. PWA & Technische Prüfungen (Lighthouse Kriterien)
+### B. PWA & Infrastruktur Tests
 
-| ID | Kriterium | Prüfmethode | Erwartetes Ergebnis |
-|---|---|---|---|
-| **TC-PWA-01** | Offline-Resilienz | Chrome DevTools "Offline" | Seite lädt vollständig aus Cache |
-| **TC-PWA-02** | Installierbarkeit | Lighthouse Audit | Icons (192/512) valide, Manifest erkannt |
-| **TC-PWA-03** | Cache-Update | sw.js Zeitstempel-Check | Alte Caches werden bei Refresh gelöscht |
+| ID | Testfall | Bedingung | Erwartetes Ergebnis | Status |
+|---|---|---|---|---|
+| **TC-PWA-01** | Offline--Start | Flugmodus aktiv | App lädt aus Cache; Status: „Offline“ | ✅ Pass |
+| **TC-PWA-02** | Update-Zyklus | DB_VERSION Erhöhung | cleanOldDatabase löscht alte Version | ✅ Pass |
+| **TC-PWA-03** | Installation | Safari „Zum Home-Bildschirm“ | App startet im Standalone-Modus | ✅ Pass |
 
 ### C. UI/UX & Portabilität (Layout-Validierung)
-Speziell für den Einsatz auf Tablets (Samsung Galaxy Tab Active4 Pro).
+Speziell für den Einsatz auf Tablets (iPad pro 12,9").
 
-| ID | Testfall | Beschreibung | Erwartetes Ergebnis |
-|---|---|---|---|
-| **TC-UI-01** | Portrait-Modus | Standardansicht (hochkant) | Grid (7/15/12/66) passt perfekt auf Screen |
-| **TC-UI-02** | Landscape-Modus | Gerät um 90° drehen (quer) | Layout skaliert; Materialtexte bleiben lesbar |
-| **TC-UI-03** | Soft-Keyboard | Eingabe bei aktivem Keyboard | Viewport bleibt stabil; Eingabefeld ist sichtbar |
+| ID | Testfall | Beschreibung | Erwartetes Ergebnis | Status |
+|---|---|---|---|---|
+| **TC-UI-01** | Portrait-Modus | Standardansicht (hochkant) | Grid (7/15/12/66) passt perfekt auf Screen | ✅ Pass |
+| **TC-UI-02** | Landscape-Modus | Gerät um 90° drehen (quer) | Layout skaliert; alles bleibt lesbar | ✅ Pass |
+| **TC-UI-03** | Soft-Keyboard | Eingabe bei aktivem Keyboard | Viewport bleibt stabil; Eingabefeld ist sichtbar | ✅ Pass |
 
 ---
 
-## 3. Testprotokoll (Test Execution Log)
+## 3. Testprotokoll (Durchführung)
 
 Manuelle Durchführung und Dokumentation der Ergebnisse.
 
-**Testumgebung**: [Brave 1.87.188 / Samsung Galaxy Tab Active4 Pro]  
-**Datum**: 19.02.2026
+Umgebung:
 
-| Fall-ID | Status | Beobachtung / Fehler |
-|---|---|---|
-| TC-01 | ✅ PASS | Berechnung korrekt durchgeführt |
-| TC-02 | ✅ PASS | Berechnung korrekt durchgeführt |
-| TC-03 | ✅ PASS | Berechnung korrekt durchgeführt |
-| TC-04 | ✅ PASS | Berechnung korrekt durchgeführt |
-| TC-05 | ✅ PASS | Grenzwert 840mm (880-40) korrekt erkannt |
-| TC-06 | ✅ PASS | Grenzwert 840mm (880-40) korrekt erkannt |
-| TC-07 | ✅ PASS | Grenzwert 840mm (880-40) korrekt erkannt |
-| TC-08 | ✅ PASS | Grenzwert 840mm (880-40) korrekt erkannt |
-| TC-09 | ✅ PASS | Minimalmaß Anzeige: "-" korrekt |
-| TC-PWA-01 | ✅ PASS | App startet sofort ohne Internet |
-| TC-PWA-02 | ✅ PASS | Verifiziert durch Screenshot: Install-Button in Adressleiste aktiv. (Lighthouse-UI-Bug ignoriert) |
-| TC-PWA-03 | ✅ PASS | Alte Caches werden bei Refresh gelöscht |
-| TC-UI-01 | ✅ PASS | Layout im Hochformat optimal verteilt |
-| TC-UI-02 | ✅ PASS | Landscape-Check: Media-Queries greifen; kein Content-Abbruch |
+**Hardware**: iPad Pro 12,9", PC (MacOS Tahoe 26.2)  
+**Browser:** Safari (iOS, MacOS), Chrome 121+ (MacOS)
+**Netzwerk:** Simulierte Offline-Umgebung (DevTools & Flugmodus)
 
----
+Besondere Beobachtungen:
+- Der Long-Press-Reload (2 Sek.) funktioniert zuverlässig als Notfall-Reset auf dem Tablet.
+- Die IndexedDB verarbeitet die 108 Datensätze ohne merkliche Latenz (< 50ms).
 
 ## 4. Lighthouse-Audit Ergebnisse (Statische Analyse)
 
@@ -113,16 +105,16 @@ Dokumentation der automatisierten Metriken.
 
 ---
 
-## 5. Testabschlussbericht (Summary Report)
+## 5. Testabschlussbericht
 
 ### Zusammenfassung
 
-Der **Fenster-Konfigurator** erfüllt alle Anforderungen an eine moderne PWA. Die Berechnungslogik ist durch die Trennung von Daten (`materials.json`) und Logik (`app.js`) hochgradig präzise und wartungsfreundlich.
+Der **Fenster- & Türen-Konfigurator** erfüllt alle Anforderungen an eine moderne PWA. Die Berechnungslogik ist durch die Trennung von Daten (`materials.json`) und Logik (`app.js`) hochgradig präzise und wartungsfreundlich.
 
 ### Verifizierte Funktionalität
 
 ✅ **Berechnungslogik**
-- Die **-40mm Logik** arbeitet konsistent über alle Fenstertypen (Dreh, Kipp, DrehKipp, Stulp)
+- Die **-40mm Logik** arbeitet konsistent über alle Fenster-/Türentypen 
 - FFH-basierte Zuordnung für Links/Rechts funktioniert korrekt
 - FFB-basierte Zuordnung für Oben/Unten funktioniert korrekt
 - Grenzwerte werden korrekt behandelt
@@ -135,16 +127,17 @@ Der **Fenster-Konfigurator** erfüllt alle Anforderungen an eine moderne PWA. Di
 
 ✅ **Datenintegrität**
 - Die IndexedDB wird bei Versionssprung (aktuell **V8**) zuverlässig neu aufgebaut
-- 83 Materialeinträge werden korrekt aus `materials.json` geladen
-- Position-Swapping für Dreh/DrehKipp/Stulp wird korrekt angewendet
+- Materialeinträge werden korrekt aus `materials.json` geladen
+- Position-Swapping wird korrekt angewendet
 
 ✅ **Benutzeroberfläche**
 - Touch-optimierte Elemente (48-52px min-height)
 - Long-Press Reload (2 Sekunden) funktioniert auf Tablets
 - Responsive Design mit Grid-Layout: 7% / 15% / 12% / 66%
+- UI-Layout auf iPad Pro 12.9" stabil (Landscape/Portrait).
 - Logo-Farbschema (#FFDE0B gelb, #595551 braun) korrekt implementiert
 
-✅ Installierbarkeit & PWA-Konformität
+✅ **Installierbarkeit & PWA-Konformität**
 - Nachweis: Die App löst den nativen Installations-Prompt aus (verifiziert via Screenshot install-check.png).
 - Manifest: Alle Pflichtfelder (id, start_url, icons) sind valide und werden vom Browser-Core (Brave/Chrome) akzeptiert.
 - Branding: Theme-Color (#0f172a) wird korrekt in die Statusleiste übernommen.
@@ -172,12 +165,11 @@ Der **Fenster-Konfigurator** erfüllt alle Anforderungen an eine moderne PWA. Di
 
 ### Freigabekriterien
 
-- [x] Alle funktionalen Tests bestanden
-- [x] Alle PWA-Tests bestanden
-- [x] Lighthouse-Score > 90 erreicht
-- [x] Keine kritischen Fehler vorhanden
-- [x] Offline-Funktionalität verifiziert
-- [x] 83 Materialeinträge korrekt geladen
+- [x] Alle 108 Materialeinträge korrekt in IndexedDB geladen.
+- [x] -40mm Offset-Berechnung mathematisch verifiziert.
+- [x] Excel-Export kompatibel mit Folgesystemen (kein Header).
+- [x] Offline-Funktionalität durch Service Worker bestätigt.
+- [x] UI-Layout auf iPad Pro 12.9" stabil (Landscape/Portrait).
 
 ## 7. Nachtrag: Fehlerbehebung (Bugfix Log)
 
@@ -191,12 +183,11 @@ Der **Fenster-Konfigurator** erfüllt alle Anforderungen an eine moderne PWA. Di
 
 **✅ Freigabe für Produktion: JA**
 
-Die App ist stabil und für den produktiven Einsatz auf Baustellen-Tablets freigegeben.
+Die App erfüllt alle im Pflichtenheft definierten Anforderungen und ist für den mobilen Einsatz stabil.
 
 ---
 
-**Dokumentiert am**: 20.02.2026  
+**Dokumentiert am**: 24.02.2026  
 **Version**: 1.0  
-**DB-Version**: 9  
+**DB-Version**: 13  
 **Status**: ✅ Produktionsreif  
-**Standard**: ISTQB Foundation Level konform
