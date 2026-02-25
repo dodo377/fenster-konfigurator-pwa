@@ -62,7 +62,7 @@ let db;
 let deferredPrompt;
 let currentWindowType = "dreh";
 let currentCategory = "fenster";
-let loadedFileName = null; // Speichert den Namen der geladenen Datei
+let loadedFileName = localStorage.getItem("loadedFileName") || null; // Speichert den Namen der geladenen Datei
 
 const windowImages = {
     fenster: {
@@ -235,11 +235,7 @@ const formatDateForFilename = (date) => {
 
 const ensureXlsxLoaded = () =>
     new Promise((resolve, reject) => {
-        if (window.XLSX) {
-            resolve();
-            return;
-        }
-
+        if (window.XLSX) { resolve(); return; }
         const script = document.createElement("script");
         script.src = "vendor/xlsx.full.min.js";
         script.async = true;
@@ -247,6 +243,91 @@ const ensureXlsxLoaded = () =>
         script.onerror = () => reject(new Error("XLSX konnte nicht geladen werden"));
         document.head.appendChild(script);
     });
+
+const ensureJszipLoaded = () =>
+    new Promise((resolve, reject) => {
+        if (window.JSZip) { resolve(); return; }
+        const script = document.createElement("script");
+        script.src = "vendor/jszip.min.js";
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("JSZip konnte nicht geladen werden"));
+        document.head.appendChild(script);
+    });
+
+// Spaltennummer (0-basiert) → Buchstabe (A, B, ..., Z, AA, ...)
+const columnIndexToLetter = (idx) => {
+    let letter = '';
+    let n = idx + 1;
+    while (n > 0) {
+        const rem = (n - 1) % 26;
+        letter = String.fromCharCode(65 + rem) + letter;
+        n = Math.floor((n - 1) / 26);
+    }
+    return letter;
+};
+
+// Neue Zeilen direkt in die Sheet-XML einfügen (alle Formatierungen bleiben erhalten)
+const appendRowsToSheetXml = (xmlStr, newRows) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(xmlStr, 'application/xml');
+    const sheetData = doc.querySelector('sheetData');
+    if (!sheetData) return xmlStr;
+
+    const rows = Array.from(sheetData.querySelectorAll('row'));
+    const lastRowEl = rows[rows.length - 1];
+    const lastRowNum = lastRowEl ? parseInt(lastRowEl.getAttribute('r') || '0') : 0;
+
+    // dimension-Attribut aktualisieren
+    const dimension = doc.querySelector('dimension');
+    if (dimension) {
+        const ref = dimension.getAttribute('ref') || '';
+        const updated = ref.replace(/([A-Z]+)(\d+)$/, (_, col) => `${col}${lastRowNum + newRows.length}`);
+        dimension.setAttribute('ref', updated);
+    }
+
+    // Style-Index der letzten Zeile spaltenweise merken
+    const templateStyles = {};
+    if (lastRowEl) {
+        lastRowEl.querySelectorAll('c').forEach(cell => {
+            const colLetter = (cell.getAttribute('r') || '').replace(/\d+/, '');
+            const s = cell.getAttribute('s');
+            if (colLetter && s !== null) templateStyles[colLetter] = s;
+        });
+    }
+
+    // Neue Zeilen anhängen
+    newRows.forEach((rowData, idx) => {
+        const rowNum = lastRowNum + 1 + idx;
+        const rowEl = doc.createElementNS(sheetData.namespaceURI, 'row');
+        rowEl.setAttribute('r', rowNum);
+        if (lastRowEl?.getAttribute('spans')) {
+            rowEl.setAttribute('spans', lastRowEl.getAttribute('spans'));
+        }
+
+        rowData.forEach((value, colIdx) => {
+            const col = columnIndexToLetter(colIdx);
+            const ref = `${col}${rowNum}`;
+            const c = doc.createElementNS(sheetData.namespaceURI, 'c');
+            c.setAttribute('r', ref);
+
+            // Style aus letzter Zeile kopieren → Rahmen/Formatierung übernehmen
+            const s = templateStyles[col];
+            if (s != null) c.setAttribute('s', s);
+
+            if (value !== null && value !== undefined && value !== '') {
+                if (typeof value !== 'number') c.setAttribute('t', 'str');
+                const v = doc.createElementNS(sheetData.namespaceURI, 'v');
+                v.textContent = String(value);
+                c.appendChild(v);
+            }
+            rowEl.appendChild(c);
+        });
+        sheetData.appendChild(rowEl);
+    });
+
+    return new XMLSerializer().serializeToString(doc);
+};
 
 const getExportRows = () => {
     try {
@@ -349,45 +430,94 @@ const saveRowToMemory = () => {
     updateMaterials();
 };
 
-const exportToExcel = async () => {
-    try {
-        await ensureXlsxLoaded();
-    } catch (error) {
-        alert("Export nicht möglich. Bitte prüfen Sie die Internetverbindung.");
-        return;
+const downloadBlob = async (blob, fileName) => {
+    // File System Access API: direktes Speichern ohne URL (kein Warning)
+    if (window.showSaveFilePicker) {
+        try {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: fileName,
+                types: [{ description: 'Excel Datei', accept: { 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'] } }]
+            });
+            const writable = await handle.createWritable();
+            await writable.write(blob);
+            await writable.close();
+            alert("Datei gespeichert: " + fileName);
+            return;
+        } catch (err) {
+            if (err.name === 'AbortError') return;
+        }
     }
+    // Fallback: Data-URL
+    const reader = new FileReader();
+    reader.onload = () => {
+        const link = document.createElement("a");
+        link.href = reader.result;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        alert("Datei heruntergeladen: " + fileName);
+    };
+    reader.readAsDataURL(blob);
+};
 
-    const rows = normalizeExportRows(getExportRows());
-    if (!rows.length) {
+const exportToExcel = async () => {
+    const newRows = normalizeExportRows(getExportRows());
+    if (!newRows.length) {
         alert("Keine Daten zum Exportieren. Bitte speichern Sie zunächst Daten mit 'Daten Zwischenspeichern'.");
         return;
     }
 
-    const worksheet = XLSX.utils.aoa_to_sheet(rows);
-    
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Konfiguration");
+    const base64 = localStorage.getItem("loadedFileBase64");
+    const fileName = loadedFileName || localStorage.getItem("loadedFileName") || `Vorgaenge_${formatDateForFilename(new Date())}.xlsx`;
 
-    const arrayBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-    const blob = new Blob([arrayBuffer], {
-        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    });
+    if (base64) {
+        // JSZip: Original-ZIP laden → nur sheet XML ändern, alles andere (styles, theme, …) bleibt erhalten
+        try {
+            await ensureJszipLoaded();
+        } catch {
+            alert("Export nicht möglich: JSZip konnte nicht geladen werden.");
+            return;
+        }
 
-    // Verwende geladenen Dateinamen oder generiere neuen
-    const fileName = loadedFileName || `Vorgaenge_${formatDateForFilename(new Date())}.xlsx`;
-    const file = new File([blob], fileName, { type: blob.type });
+        const binaryStr = atob(base64);
+        const bytes = new Uint8Array(binaryStr.length);
+        for (let i = 0; i < binaryStr.length; i++) bytes[i] = binaryStr.charCodeAt(i);
 
-    // Direkter Download (Share API ist oft nicht verfügbar)
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(url);
-    
-    alert("Datei heruntergeladen: " + fileName);
+        const zip = await JSZip.loadAsync(bytes);
+
+        // Sheet-Pfad aus workbook.xml.rels ermitteln
+        const wbXml = await zip.file('xl/workbook.xml').async('string');
+        const sheetMatch = wbXml.match(/r:id="(rId\d+)"/);
+        const relXml = await zip.file('xl/_rels/workbook.xml.rels').async('string');
+        const rId = sheetMatch?.[1] ?? 'rId1';
+        const relMatch = relXml.match(new RegExp(`Id="${rId}" Target="([^"]+)"`));
+        const sheetPath = relMatch
+            ? `xl/${relMatch[1].replace(/^\.?\//, '')}`
+            : 'xl/worksheets/sheet1.xml';
+
+        const sheetFile = zip.file(sheetPath) || zip.file('xl/worksheets/sheet1.xml');
+        if (!sheetFile) { alert("Ungültiges Dateiformat."); return; }
+
+        const sheetXml = await sheetFile.async('string');
+        const modifiedXml = appendRowsToSheetXml(sheetXml, newRows);
+        zip.file(sheetFile.name, modifiedXml);
+
+        const output = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE', compressionOptions: { level: 6 } });
+        const blob = new Blob([output], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        saveExportRows([]);
+        await downloadBlob(blob, fileName);
+    } else {
+        // Keine Basis-Datei → einfache neue Datei mit SheetJS
+        try { await ensureXlsxLoaded(); } catch { alert("Export nicht möglich."); return; }
+        const workbook = XLSX.utils.book_new();
+        const worksheet = XLSX.utils.aoa_to_sheet(newRows);
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Konfiguration");
+        const arrayBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+        const blob = new Blob([arrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        saveExportRows([]);
+        await downloadBlob(blob, fileName);
+    }
 };
 
 const importFromExcel = async (file) => {
@@ -400,19 +530,31 @@ const importFromExcel = async (file) => {
 
     try {
         const arrayBuffer = await file.arrayBuffer();
-        const workbook = XLSX.read(arrayBuffer, { type: "array" });
-        const firstSheet = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheet];
+        const uint8Array = new Uint8Array(arrayBuffer);
+
+        // Original-Datei als Base64 in localStorage sichern → Formatierung bleibt erhalten
+        let binaryStr = '';
+        for (let i = 0; i < uint8Array.length; i++) binaryStr += String.fromCharCode(uint8Array[i]);
+        localStorage.setItem("loadedFileBase64", btoa(binaryStr));
+
+        // Zeilenanzahl ermitteln für die Info-Meldung
+        const workbook = XLSX.read(uint8Array, { type: "array" });
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
         const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: "" });
+
         if (!rows.length) {
             alert("Keine Daten in der Datei gefunden.");
             return;
         }
-        // Speichere alle vorhandenen Zeilen (inklusive evtl. vorhandener Überschriften)
-        saveExportRows(rows);
-        // Speichere den Dateinamen für späteren Export
+
+        // Neue Zeilen zurücksetzen – die geladene Datei ist die neue Basis
+        saveExportRows([]);
+
+        // Dateinamen persistent speichern
         loadedFileName = file.name;
-        alert("Datei geladen. Neue Vorgänge werden jetzt angehängt.");
+        localStorage.setItem("loadedFileName", file.name);
+
+        alert(`Datei geladen (${rows.length} Zeilen). Neue Vorgänge werden angehängt.`);
     } catch (error) {
         alert("Datei konnte nicht gelesen werden.");
     }

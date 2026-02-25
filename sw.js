@@ -5,6 +5,7 @@ const STATIC_ASSETS = [
     "./app.js",
     "./materials.json",
     "./manifest.json",
+    "./vendor/jszip.min.js",
     "./vendor/xlsx.full.min.js",
     "./images/icon-192.png",
     "./images/icon-512.png",
