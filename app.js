@@ -413,24 +413,7 @@ const saveRowToMemory = () => {
     updateMaterials();
 };
 
-const downloadBlob = async (blob, fileName) => {
-    // File System Access API: direktes Speichern ohne URL (kein Warning)
-    if (window.showSaveFilePicker) {
-        try {
-            const handle = await window.showSaveFilePicker({
-                suggestedName: fileName,
-                types: [{ description: 'Excel Datei', accept: { 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'] } }]
-            });
-            const writable = await handle.createWritable();
-            await writable.write(blob);
-            await writable.close();
-            alert("Datei gespeichert: " + fileName);
-            return;
-        } catch (err) {
-            if (err.name === 'AbortError') return;
-        }
-    }
-    // Fallback: Data-URL
+const downloadBlob = (blob, fileName) => {
     const reader = new FileReader();
     reader.onload = () => {
         const link = document.createElement("a");
@@ -489,7 +472,7 @@ const exportToExcel = async () => {
         const output = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE', compressionOptions: { level: 6 } });
         const blob = new Blob([output], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
         saveExportRows([]);
-        await downloadBlob(blob, fileName);
+        downloadBlob(blob, fileName);
     } else {
         // Keine Basis-Datei → einfache neue Datei mit SheetJS
         try { await ensureXlsxLoaded(); } catch { alert("Export nicht möglich."); return; }
@@ -499,7 +482,7 @@ const exportToExcel = async () => {
         const arrayBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([arrayBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
         saveExportRows([]);
-        await downloadBlob(blob, fileName);
+        downloadBlob(blob, fileName);
     }
 };
 
