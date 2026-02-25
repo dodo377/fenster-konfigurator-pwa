@@ -267,7 +267,7 @@ const columnIndexToLetter = (idx) => {
     return letter;
 };
 
-// Neue Zeilen direkt in die Sheet-XML einfügen (alle Formatierungen bleiben erhalten)
+// Neue Zeilen direkt in die Sheet-XML einfügen – Kopfzeilen bleiben unverändert
 const appendRowsToSheetXml = (xmlStr, newRows) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(xmlStr, 'application/xml');
@@ -286,34 +286,17 @@ const appendRowsToSheetXml = (xmlStr, newRows) => {
         dimension.setAttribute('ref', updated);
     }
 
-    // Style-Index der letzten Zeile spaltenweise merken
-    const templateStyles = {};
-    if (lastRowEl) {
-        lastRowEl.querySelectorAll('c').forEach(cell => {
-            const colLetter = (cell.getAttribute('r') || '').replace(/\d+/, '');
-            const s = cell.getAttribute('s');
-            if (colLetter && s !== null) templateStyles[colLetter] = s;
-        });
-    }
-
-    // Neue Zeilen anhängen
+    // Neue Zeilen anhängen – ohne Style (Kopfzeilen behalten ihre Formatierung, neue Zeilen sind plain)
     newRows.forEach((rowData, idx) => {
         const rowNum = lastRowNum + 1 + idx;
         const rowEl = doc.createElementNS(sheetData.namespaceURI, 'row');
         rowEl.setAttribute('r', rowNum);
-        if (lastRowEl?.getAttribute('spans')) {
-            rowEl.setAttribute('spans', lastRowEl.getAttribute('spans'));
-        }
 
         rowData.forEach((value, colIdx) => {
             const col = columnIndexToLetter(colIdx);
             const ref = `${col}${rowNum}`;
             const c = doc.createElementNS(sheetData.namespaceURI, 'c');
             c.setAttribute('r', ref);
-
-            // Style aus letzter Zeile kopieren → Rahmen/Formatierung übernehmen
-            const s = templateStyles[col];
-            if (s != null) c.setAttribute('s', s);
 
             if (value !== null && value !== undefined && value !== '') {
                 if (typeof value !== 'number') c.setAttribute('t', 'str');
