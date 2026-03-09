@@ -403,9 +403,7 @@ const saveRowToMemory = () => {
     saveExportRows(rows);
     alert("Zeile gespeichert. Jetzt können Sie weitere Daten eingeben oder auf 'In Datei schreiben' klicken.");
     
-    // Eingabefelder leeren
-    orderNumberInput.value = "";
-    customerNameInput.value = "";
+    // Eingabefelder leeren – Vorgangsnummer und Name bleiben erhalten
     positionInput.value = "";
     quantityInput.value = "1";
     widthInput.value = "";

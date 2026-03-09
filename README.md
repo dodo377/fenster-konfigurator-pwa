@@ -1,6 +1,6 @@
 # Fenster- & Türen-Konfigurator PWA
 
-Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automatischer Materiallisten-Generierung basierend auf den eingegebenen Falzmaßen.
+Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automatischer Material-Anzeige basierend auf den eingegebenen Falzmaßen. Materialien werden dann in eine (bestehende) Excel-Datei exportiert.
 
 ---
 
@@ -10,9 +10,10 @@ Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automati
 - 💾 **IndexedDB** – 108 Materialeinträge lokal gespeichert (Fenster + Türen)
 - 📱 **PWA-Installierbar** – iOS / Android / Desktop
 - 🧮 **Automatische Materialberechnung** mit –40 mm Offset auf Falzmaße
-- 📥 **Excel-Import** – bestehende Datei laden und weiter befüllen
-- 💾 **Zwischenspeichern** – mehrere Zeilen sammeln, bevor in Datei geschrieben wird
-- 🧾 **Excel-Export** – ohne Spaltenüberschriften, gleicher Dateiname wie Import
+- 📥 **Excel-Import** – bestehende Datei laden; Kopfzeilen (Rahmen, Fettdruck, verbundene Zellen) bleiben erhalten
+- 💾 **Zwischenspeichern** – mehrere Zeilen sammeln; Vorgangsnummer & Name bleiben stehen
+- 🧾 **Excel-Export** – neue Zeilen werden an die geladene Datei angehängt (Formatierung der Kopfzeilen bleibt erhalten)
+- 🏷️ **DB-Version im Header** – aktuelle IndexedDB-Version wird im Header angezeigt
 - 🖱️ **Touch-optimiert** – iPad Pro 12,9″, Hoch- & Querformat
 
 ---
@@ -32,9 +33,9 @@ Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automati
 
 ## Excel-Workflow
 
-1. **Datei laden** *(optional)* – vorhandene Excel-Datei einlesen; der Dateiname wird für den späteren Export gespeichert.
-2. **Daten Zwischenspeichern** – aktuelle Zeile in `localStorage` ablegen, Eingabefelder werden automatisch geleert.
-3. **In Datei schreiben** – alle zwischengespeicherten Zeilen als `.xlsx` exportieren (ohne Header). Wurde vorher eine Datei geladen, wird deren Name wiederverwendet.
+1. **Datei laden** *(optional)* – vorhandene Excel-Datei einlesen. Die Original-Datei wird als Base64 in `localStorage` gespeichert, damit Kopfzeilen-Formatierungen (Rahmen, Fettdruck, verbundene Zellen) erhalten bleiben. Dateiname wird für späteren Export gesichert.
+2. **Daten Zwischenspeichern** – aktuelle Zeile in `localStorage` ablegen. Vorgangsnummer und Name bleiben stehen; Position, Menge und Maße werden geleert.
+3. **In Datei schreiben** – alle zwischengespeicherten Zeilen werden mittels JSZip direkt in die `sheet1.xml` der Original-Datei eingetragen und heruntergeladen. Kopfzeilen bleiben unverändert; neue Datenzeilen werden ohne Formatierung angehängt.
 
 **Spaltenreihenfolge im Export:**
 
@@ -62,9 +63,10 @@ Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automati
 | Frontend | Vanilla JavaScript (ES6+) |
 | Datenpersistenz | IndexedDB, DB_VERSION = 13 |
 | DB-Versionswechsel | Automatische Löschung & Neu-Import |
-| Excel | SheetJS lokal (`vendor/xlsx.full.min.js`) |
+| Excel-Export | JSZip (`vendor/jszip.min.js`) – nur `sheet1.xml` wird modifiziert |
+| Excel-Lesen | SheetJS lokal (`vendor/xlsx.full.min.js`) |
 | Service Worker | Filtert Nicht-HTTP(S)-Requests (z. B. `chrome-extension://`) |
-| Speicher | `localStorage` Key `exportRows` für zwischengespeicherte Zeilen |
+| localStorage | `exportRows` – zwischengespeicherte Zeilen<br>`loadedFileName` – Dateiname der geladenen Datei<br>`loadedFileBase64` – Original-Datei als Base64 |
 
 ---
 
@@ -73,12 +75,13 @@ Progressive Web App zur Konfiguration von Fenstern und Balkontüren mit automati
 ```
 window_door/
 ├── index.html          # App-Shell
-├── styles.css          # Styling inkl. .btn--secondary
+├── styles.css          # Styling inkl. .btn--secondary, Portrait-Anpassung
 ├── app.js              # Hauptlogik, IndexedDB, Export/Import
 ├── sw.js               # Service Worker
 ├── manifest.json       # PWA-Manifest
 ├── materials.json      # 108 Materialeinträge
 ├── vendor/
+│   ├── jszip.min.js    # ZIP-Manipulation für format-erhaltenden Export
 │   └── xlsx.full.min.js
 └── images/
     ├── LOGO_HR.png
