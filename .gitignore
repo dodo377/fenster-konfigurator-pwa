@@ -17,7 +17,3 @@ Thumbs.db
 *.tmp
 *.temp
 
-*.md
-docs/
-docs/pdf/
-docs/testing/
